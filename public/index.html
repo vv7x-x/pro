@@ -244,7 +244,7 @@
         <p class="section-sub" data-i18n="portSub">Real projects I've built. Each one focused on delivering results.</p>
       </div>
       <div class="portfolio-grid" data-aos="fade-up" data-aos-delay="100">
-        <div class="portfolio-card">
+        <div class="portfolio-card" data-live-url="https://snnop.vercel.app/">
           <div class="portfolio-preview">
             <img src="images/snnop-preview.png" alt="SNNOP Project Preview" loading="lazy" />
             <div class="overlay"></div>
@@ -259,7 +259,7 @@
             </a>
           </div>
         </div>
-        <div class="portfolio-card">
+        <div class="portfolio-card" data-live-url="https://dmbooks-teal.vercel.app/">
           <div class="portfolio-preview">
             <img src="images/dmbooks-preview.png" alt="DMBooks Project Preview" loading="lazy" />
             <div class="overlay"></div>
@@ -452,5 +452,13 @@
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
   <script src="/js/main.min.js" defer></script>
+  <script>
+    document.addEventListener('click', function(e) {
+      var card = e.target.closest('.portfolio-card');
+      if (card && card.hasAttribute('data-live-url') && !e.target.closest('a')) {
+        window.open(card.getAttribute('data-live-url'), '_blank');
+      }
+    });
+  </script>
 </body>
 </html>
